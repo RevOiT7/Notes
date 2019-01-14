@@ -1,0 +1,17 @@
+.description{
+    background-color: #d6d7d8e0;
+    height: 35vw;
+    flex: 1 0 auto;
+}
+.titleDescription{
+    text-align: center;
+    padding: 3%;
+    margin: 0;
+    font: 3.5vw Snell Roundhand, cursive;
+}
+.text{
+    margin: 0;
+    padding-left: 6%;
+    padding-right: 6%;
+    font: 1.6vw Snell Roundhand, cursive;
+}

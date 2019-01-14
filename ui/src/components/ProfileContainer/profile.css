@@ -1,0 +1,64 @@
+.userContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.profile{
+    margin: 5.7vw 0.2vw 0.2vw 0.2vw;
+    height: 46vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(236, 236, 236, 0.88);
+
+}
+.userIco{
+    background: url("../../img/profile.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 16vw;
+    height: 16vw;
+}
+.userName{
+    margin-top: 2vw;
+    font:  3vw Snell Roundhand, cursive;
+}
+.contLogout{
+    margin: 0.2vw;
+    background-color: rgba(236, 236, 236, 0.88);
+    cursor: pointer;
+}
+.logout{
+    margin: 0;
+    padding: 1.5vw;
+    color: #b00000;
+    font: 2.2vw Snell Roundhand, cursive;
+}
+.contLogout:hover{
+    background-color: rgba(148, 184, 255, 0.65);
+}
+.contLogout:active{
+    background-color: rgba(75, 98, 149, 0.85)
+}
+
+.contDelete{
+    display: flex;
+    justify-content: center;
+    margin: 0.2vw;
+    background-color: rgba(236, 236, 236, 0.88);
+    cursor: pointer;
+}
+.delete{
+    margin: 0;
+    padding: 1.5vw;
+    color: #b00000;
+    font: 2.2vw Snell Roundhand, cursive;
+
+}
+.contDelete:hover{
+    background-color: rgba(148, 184, 255, 0.65);
+}
+.contDelete:active{
+    background-color: rgba(75, 98, 149, 0.85)
+}

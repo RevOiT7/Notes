@@ -1,0 +1,8 @@
+.areaText{
+    border: 0;
+    margin: 0 0.2vw 0.2vw 0.2vw;
+    padding: 1vw;
+    resize: none;
+    line-height: 2.5vw;
+    font: 2vw Snell Roundhand, cursive;
+}

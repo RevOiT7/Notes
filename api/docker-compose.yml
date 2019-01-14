@@ -1,0 +1,100 @@
+version: '3'
+
+volumes:
+  mysql:
+  mongo:
+  phpmyadmin:
+
+services:
+
+### Composer ##############################################
+    composer:
+      image: composer:latest
+      volumes:
+      - .:/app
+      command: 'true'
+
+### PHP-FPM ##############################################
+    php-fpm:
+      build:
+        context: ./docker/php-fpm
+      volumes:
+        - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
+        - ./:/var/www
+      expose:
+        - "9000"
+
+### NGINX Server #########################################
+    nginx:
+      build:
+        context: ./docker/nginx
+      volumes:
+        - ./:/var/www
+      ports:
+        - 8080:80
+        - 8442:443
+      depends_on:
+        - php-fpm
+
+#### MySQL ################################################
+    mysql:
+      build:
+        context: ./docker/mysql
+        args:
+          - MYSQL_VERSION=5
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+        - MYSQL_DATABASE=notes
+        - MYSQL_USER=notes
+        - MYSQL_PASSWORD=asf9#89hf9384h
+        - MYSQL_ROOT_PASSWORD=@rf34f34@#F34f34
+      volumes:
+        - ./api/docker/data/mysql:/var/lib/mysql
+        - ./api/docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      ports:
+        - 3306
+
+#### MongoDB ##############################################
+    mongo:
+      build: ./docker/mongo
+      ports:
+        - "27017:27017"
+      volumes:
+        - ./api/docker/data/mongo:/data/db
+
+
+  #### phpMyAdmin ###########################################
+    phpmyadmin:
+      build: ./docker/phpmyadmin
+      environment:
+        - PMA_ARBITRARY=1
+#        - MYSQL_USER=${DB_USERNAME}
+#        - MYSQL_PASSWORD=${DB_PASSWORD}
+#        - MYSQL_ROOT_PASSWORD=@rf34f34@#F34f34
+        - PMA_HOST=mysql
+        - PMA_PORT=DB_PORT
+      ports:
+        - 8181:80
+#      depends_on:
+#        - mysql
+#      networks:
+#        - frontend
+#        - backend
+
+#### MongoWebUI ################################################
+#    mongo-webui:
+#      build:
+#        context: ./mongo-webui
+#      restart: always
+#      environment:
+#        - ROOT_URL=${MONGO_WEBUI_ROOT_URL}
+#        - MONGO_URL=${MONGO_WEBUI_MONGO_URL}
+#        - INSTALL_MONGO=${MONGO_WEBUI_INSTALL_MONGO}
+#      volumes:
+#        - ${DATA_PATH_HOST}/mongo-webui:/data/db
+#      ports:
+#        - "${MONGO_WEBUI_PORT}:3000"
+#      networks:
+#        - backend
+#      depends_on:
+#        - mongo

@@ -1,0 +1,13 @@
+.input{
+    margin-top: 2vw;
+    width: 100%;
+}
+.sameInput{
+    box-sizing: border-box;
+    border: 0;
+    height: 3.3vw;
+    width: 100%;
+    padding-left: 1vw;
+    /*font-size: 1.2vw;*/
+    font: bold 1.8vw Snell Roundhand, cursive;
+}

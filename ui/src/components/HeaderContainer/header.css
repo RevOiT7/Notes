@@ -1,0 +1,61 @@
+.cont-header{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 8vw;
+    background-color: #00000052;
+    padding: 2vw 3vw 2vw 3vw;
+}
+.logo{
+    background: url("../../img/notes.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+}
+.register{
+    background: url("../../img/register.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+}
+.login{
+    background: url("../../img/login2.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+}
+.close{
+    background: url("../../img/close.png") no-repeat ;
+    background-size: 90% 90%;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+    position: absolute;
+}
+.search{
+    background: url("../../img/search.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+    position: absolute;
+}
+.search-input{
+    width: 96vw;
+    border: 0;
+    margin: -1vw;
+    padding-left: 6vw;
+    padding-right: 3vw;
+    font:  2.3vw Snell Roundhand, cursive;
+    outline: none;
+}
+.user{
+    background: url("../../img/user1.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+}

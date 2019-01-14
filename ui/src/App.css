@@ -1,0 +1,13 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.main-container{
+    background: url("img/workPlace.jpg") no-repeat;
+    background-size: 100% 100%;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 65vw;
+}

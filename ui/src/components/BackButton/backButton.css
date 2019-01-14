@@ -1,0 +1,26 @@
+.backCont {
+    margin: 0;
+    font: italic 2.8vw Snell Roundhand, cursive;
+    cursor: pointer;
+    color: rgba(69, 68, 71, 0.98);
+    display: flex;
+    position: absolute;
+    width: 100%;
+    background-color: #c4c4c4;
+}
+.backButton{
+    margin: 1vw 0 1vw 7vw;
+    background: url("../../img/back.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 3.5vw;
+    height: 3.5vw;
+    cursor: pointer;
+}
+.backCont:hover .backButton{
+    background: url("../../img/hoverBack1.png") no-repeat ;
+    background-size: 100% 100%;
+}
+.back{
+    padding: 1.2vw 0 0 2vw;
+    margin: 0;
+}

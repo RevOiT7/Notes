@@ -1,0 +1,87 @@
+version: '3'
+volumes:
+  mysql: null
+  mongo: null
+  phpmyadmin: null
+services:
+  react:
+    build:
+      context: ./ui
+    volumes:
+      - './ui:/app'
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+      - '35730:35730'
+    depends_on:
+      - nginx
+  composer:
+    image: 'composer:latest'
+    volumes:
+      - './api:/app'
+    command: 'true'
+  php-fpm:
+    build:
+      context: ./api/docker/php-fpm
+    volumes:
+      - './api/docker/php-fpm/php.ini:/usr/local/etc/php/php.ini'
+      - './api/:/var/www'
+    expose:
+      - '9000'
+  nginx:
+    build:
+      context: ./api/docker/nginx
+    volumes:
+      - './api/:/var/www'
+    ports:
+      - '8080:80'
+      - '8442:443'
+    depends_on:
+      - php-fpm
+  mysql:
+    build:
+      context: ./api/docker/mysql
+      args:
+        - MYSQL_VERSION=5
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      - MYSQL_DATABASE=notes
+      - MYSQL_USER=notes
+      - 'MYSQL_PASSWORD=asf9#89hf9384h'
+      - 'MYSQL_ROOT_PASSWORD=@rf34f34@#F34f34'
+    volumes:
+      - './api/docker/data/mysql:/var/lib/mysql'
+      - './api/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d'
+    ports:
+      - 3306
+  mongo:
+    build: ./api/docker/mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - './docker/data/mongo:/data/db'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=notes
+      - 'MONGO_INITDB_ROOT_PASSWORD=asf9#89hf9384h'
+  phpmyadmin:
+    build: ./api/docker/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_PORT=DB_PORT
+    ports:
+      - '8181:80'
+  mongo-webui:
+    build:
+      context: ./api/docker/mongo-express
+    restart: always
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=notes
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=notes
+      - 'ME_CONFIG_MONGODB_ADMINPASSWORD=asf9#89hf9384h'
+    depends_on:
+      - mongo

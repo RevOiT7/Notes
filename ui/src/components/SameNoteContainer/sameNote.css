@@ -1,0 +1,13 @@
+.editField{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.inputTittle{
+    margin: 3.7vw 0.2vw 0.2vw 0.2vw;
+}
+.buttonSave{
+    margin: -1vw 0.2vw 0.2vw 0.2vw;
+    align-self: flex-end;
+}

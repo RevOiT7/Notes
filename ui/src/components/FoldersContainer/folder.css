@@ -1,0 +1,50 @@
+.wrapp{
+    background-color: rgba(166, 165, 168, 0.65);
+    height: 100%;
+    overflow-y: auto;
+}
+.cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0;
+}
+.contForItems{
+    margin-top: 5.7vw;
+}
+.folder {
+    padding: 1vw 7vw;
+    margin: 0 0.2vw 0.2vw 0.2vw;
+    background-color: rgba(252, 252, 252, 0.86);
+    cursor: pointer;
+    font: bold 2.3vw Snell Roundhand, cursive;
+}
+.folder:hover{
+    background-color: rgba(148, 184, 255, 0.65);
+}
+.folder:active{
+    background-color: rgba(75, 98, 149, 0.85);
+}
+.note{
+    padding: 1vw 7vw;
+    margin: 0.2% 0.2%;
+    background-color: #e2e2e2;
+    cursor: pointer;
+    font: 2.3vw Snell Roundhand, cursive;
+}
+.note:hover{
+    background-color: rgba(148, 184, 255, 0.65);
+}
+.note:active{
+    background-color: rgba(75, 98, 149, 0.85);
+}
+.link{
+    text-decoration: none;
+}
+.link:active{
+    color: black;
+}
+.link:visited{
+    color: black;
+}

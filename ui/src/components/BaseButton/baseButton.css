@@ -1,0 +1,22 @@
+.button{
+    align-self:flex-end;
+    margin-top: 1vw;
+    box-sizing: border-box;
+}
+.sameButton{
+    border: 0.13em solid;
+    color: white;
+    /*font-size: 1.3vw;*/
+    font: 1.4vw Snell Roundhand, cursive;
+    letter-spacing: 0.1vw;
+    background-color: #353535;
+    padding: 0.7vw 0.7vw;
+    cursor: pointer;
+    outline: none;
+}
+.sameButton:hover{
+    background-color: #5d5d5d;
+}
+.sameButton:active{
+    box-shadow: 0 0 20px 5px #353535 inset;
+}

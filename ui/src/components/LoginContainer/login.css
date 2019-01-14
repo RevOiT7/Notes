@@ -1,0 +1,29 @@
+.entry{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.container{
+    background-color: rgba(0,0,0,0.55);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24%;
+    padding: 5%;
+}
+.title-login{
+    align-self:flex-start;
+    color: white;
+    margin: 0;
+    font: 3.5vw Snell Roundhand, cursive;
+    /*font-size: 3.5vw;*/
+}
+.contErrors{
+    padding-top: 1vw;
+}
+.error{
+    font: 1.3vw Snell Roundhand, cursive;
+    color: rgba(213, 0, 0, 0.9);
+}
